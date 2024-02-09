@@ -8,10 +8,14 @@ export class AnimalController {
 
     @MessagePattern("save_animal")
     public async handlerAnimalAdoption(@Payload() data: any){
-        console.log(data)
-        return {
-            message: "saved"
-        }
+       const res = await this.animalService.saveAnimal(JSON.parse(data))
+       return res
+    }
+
+    @MessagePattern("get_animals_to_adopt")
+    public async handlerGetAllToAdoptAnimals(){
+        const res = await this.animalService.getAllToAdoptAnimals()
+        return res
     }
 
 }

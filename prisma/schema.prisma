@@ -23,10 +23,10 @@ model User {
 model Animal{
   id Int @id @default(autoincrement())
   name String
-  adoption_date DateTime
+  adoption_date DateTime?
   age Int
   description String
-  adopted Boolean
+  adopted Boolean @default(false)
   image String
 
   userId Int
